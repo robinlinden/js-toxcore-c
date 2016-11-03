@@ -452,6 +452,7 @@ describe('Tox', function() {
     });
 
     it('should automatically try to decrypt provided encrypted data, given a pass', function() {
+      this.timeout(5000);
       var toxToSave = new Tox(),
           address = toxToSave.getAddressHexSync(),
           data = toxToSave.getSavedataSync(),

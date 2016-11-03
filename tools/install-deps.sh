@@ -31,7 +31,7 @@ if ! [ -f $CACHE_DIR/usr/lib/pkgconfig/opus.pc ]; then
 fi
 
 # install libvpx, needed for video encoding/decoding
-if ! [ -d libsodium ]; then
+if ! [ -d libvpx ]; then
   git clone --depth=1 https://chromium.googlesource.com/webm/libvpx
 fi
 cd libvpx
