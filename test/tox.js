@@ -414,6 +414,13 @@ describe('Tox', function() {
         });
       });
     });
+
+    it('should load the savedata correctly', function() {
+      var toxToSave = new Tox(),
+          address = toxToSave.getAddressHexSync(),
+          data = toxToSave.getSavedataSync();
+      new Tox({ data: data }).getAddressHexSync().toUpperCase().should.equal(address.toUpperCase());
+    });
   });
 
   describe('#getOptions()', function() {
