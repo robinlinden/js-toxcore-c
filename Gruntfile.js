@@ -10,7 +10,6 @@ module.exports = function(grunt) {
         src: [
           'lib/events.js',
           'lib/tox.js',
-          'lib/toxdns.js',
           'lib/toxencryptsave.js',
           'lib/toxoptions.js',
           'lib/tox_old.js'

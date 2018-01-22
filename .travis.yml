@@ -2,19 +2,24 @@ language: node_js
 
 cache:
   directories:
-    - $HOME/cache
+  - $HOME/cache
 
 node_js:
-  - "0.10"
-  - "0.12"
-  - "1"
-  - "2"
-  # Currently segfaults. No idea why.
-  # TODO(iphydf): Fix segfault on version 3. Need to get that from somewhere.
-  #- "3"
-  - "4"
-  - "5"
-  - "6"
+# Fails to compile module "ffi":
+# error: no matching function for call to ‘v8::Object::ForceSet(v8::Local<v8::String>, v8::Local<v8::Value>, v8::PropertyAttribute)’
+#- "node"
+- "0.10"
+- "0.12"
+- "1"
+- "2"
+# Fails to compile module "nan":
+# error: ‘class v8::Object’ has no member named ‘DefineOwnProperty’
+#- "3"
+- "4"
+- "5"
+- "6"
+- "7"
+- "8"
 
 addons: {apt: {packages: [yasm, g++-4.8], sources: [ubuntu-toolchain-r-test]}}
 
@@ -29,7 +34,3 @@ before_script:
 - export LD_LIBRARY_PATH="$CACHE_DIR/usr/lib"
 - export PKG_CONFIG_PATH="$CACHE_DIR/usr/lib/pkgconfig"
 - tools/install-deps.sh > /dev/null
-
-branches:
-  only:
-  - master

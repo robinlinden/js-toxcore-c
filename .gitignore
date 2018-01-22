@@ -1,4 +1,2 @@
-# Ignore doc/ directory until more up-to-date
-doc/
-
-node_modules/
+/node_modules
+/package-lock.js

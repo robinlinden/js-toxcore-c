@@ -13,9 +13,7 @@ that [libtoxcore] is installed prior to using **node-toxcore**.
 
 - [x] toxcore
 - [ ] toxav
-- [x] toxdns
 - [x] toxencryptsave
-- [x] tox_old.h (old groupchats)
 - [ ] Higher level API
 
 

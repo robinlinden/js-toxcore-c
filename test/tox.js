@@ -434,14 +434,6 @@ describe('Tox', function() {
     });
   });
 
-  describe('old groupchat support', function() {
-    it('should not break when { old: true } is passed to Tox constructor', function() {
-      var toxWithOld = new Tox({ old: true });
-      should.exist(toxWithOld.old());
-      toxWithOld.free();
-    });
-  });
-
   describe('crypto support', function() {
     it('should be provided by default', function() {
       tox.hasCrypto().should.be.true;
@@ -449,12 +441,10 @@ describe('Tox', function() {
 
     it('should not break when the \'crypto\' option is passed to Tox constructor', function() {
       var toxWithCrypto1 = new Tox({ crypto: true }),
-          toxWithCrypto2 = new Tox({ crypto: 'libtoxencryptsave' }),
-          toxWithCrypto3 = new Tox({ crypto: new ToxEncryptSave() }),
+          toxWithCrypto2 = new Tox({ crypto: new ToxEncryptSave() }),
           toxWithoutCrypto1 = new Tox({ crypto: false });
       toxWithCrypto1.hasCrypto().should.be.true;
       toxWithCrypto2.hasCrypto().should.be.true;
-      toxWithCrypto3.hasCrypto().should.be.true;
       toxWithoutCrypto1.hasCrypto().should.be.false;
     });
 
@@ -711,12 +701,6 @@ describe('Tox', function() {
   describe('event emitter', function() {
     it('should be gettable from a Tox instance', function() {
       should.exist(tox.getEmitter());
-    });
-
-    it('should be gettable from a ToxOld instance', function() {
-      var toxWithOld = new Tox({ old: true });
-      should.exist(toxWithOld.getEmitter());
-      toxWithOld.free();
     });
   });
 });
