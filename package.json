@@ -1,9 +1,10 @@
 {
-  "name": "toxcore",
-  "version": "1.3.0",
+  "name": "js-toxcore-c",
+  "version": "0.2.0-alpha.0",
   "description": "Node bindings for libtoxcore",
   "keywords": [
     "im",
+    "chat",
     "libtoxcore",
     "node-toxcore",
     "skype",

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.1.11
+-------
+- Reset version to track c-toxcore's versioning.
+- New package name: [js-toxcore-c](https://www.npmjs.com/package/js-toxcore-c).
+
 v1.3.0
 ------
 - Added ToxDns for libtoxdns.

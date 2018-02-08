@@ -1,0 +1,7 @@
+#load("@org_pubref_rules_node//node:rules.bzl", "mocha_test")
+#
+#[mocha_test(
+#    name = "%s_test" % src[:-3],
+#    main = src,
+#    deps = ["//js-toxcore-c"],
+#) for src in glob(["*.js"])]

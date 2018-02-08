@@ -18,33 +18,6 @@ fi
 cd ..
 rm -rf libsodium
 
-# install libopus, needed for audio encoding/decoding
-if ! [ -f $CACHE_DIR/usr/lib/pkgconfig/opus.pc ]; then
-  curl -L https://downloads.xiph.org/releases/opus/opus-1.1.tar.gz -o opus-1.1.tar.gz
-  tar xzf opus-1.1.tar.gz
-  cd opus-1.1
-  ./configure --prefix=$HOME/cache/usr
-  make -j`nproc`
-  make install
-  cd ..
-  rm -rf opus-1.1*
-fi
-
-# install libvpx, needed for video encoding/decoding
-if ! [ -d libvpx ]; then
-  git clone --depth=1 https://chromium.googlesource.com/webm/libvpx
-fi
-cd libvpx
-git rev-parse HEAD > libvpx.sha
-if ! ([ -f "$CACHE_DIR/libvpx.sha" ] && diff "$CACHE_DIR/libvpx.sha" libvpx.sha); then
-  ./configure --prefix=$HOME/cache/usr --enable-shared
-  make -j`nproc`
-  make install
-  mv libvpx.sha "$CACHE_DIR/libvpx.sha"
-fi
-cd ..
-rm -rf libvpx
-
 # install toxcore
 if ! [ -d toxcore ]; then
   git clone --depth=1 --branch=master https://github.com/TokTok/toxcore.git toxcore

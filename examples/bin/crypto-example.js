@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  * This file is part of node-toxcore.
  *
@@ -17,7 +18,7 @@
  */
 
 var fs = require('fs');
-var toxcore = require('toxcore');
+var toxcore = require('js-toxcore-c');
 
 var crypto = new toxcore.ToxEncryptSave();
 var passphrase = 'helloWorld';

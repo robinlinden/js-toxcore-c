@@ -1,12 +1,12 @@
-node-toxcore [![Build Status](https://img.shields.io/travis/saneki/node-toxcore.svg?style=flat-square)](http://travis-ci.org/saneki/node-toxcore) [![NPM Version](https://img.shields.io/npm/v/toxcore.svg?style=flat-square)](https://www.npmjs.org/package/toxcore) [![Dependency Status](https://david-dm.org/saneki/node-toxcore.svg?style=flat-square)](https://david-dm.org/saneki/node-toxcore)
+js-toxcore-c [![Build Status](https://img.shields.io/travis/TokTok/js-toxcore-c.svg?style=flat-square)](http://travis-ci.org/TokTok/js-toxcore-c) [![NPM Version](https://img.shields.io/npm/v/js-toxcore-c.svg?style=flat-square)](https://www.npmjs.org/package/js-toxcore-c)
 ============
 
-[![NPM](https://nodei.co/npm/toxcore.png?mini=true)](https://nodei.co/npm/toxcore/)
+[![NPM](https://nodei.co/npm/js-toxcore-c.png?mini=true)](https://nodei.co/npm/js-toxcore-c/)
 
 Node.js bindings for [libtoxcore], built off of [node-ffi].
 
 Note: Installing this package does not install [libtoxcore]. It is expected
-that [libtoxcore] is installed prior to using **node-toxcore**.
+that [libtoxcore] is installed prior to using **js-toxcore-c**.
 
 
 ### New API Progress
@@ -20,7 +20,7 @@ that [libtoxcore] is installed prior to using **node-toxcore**.
 ### Synchronous Example
 
 ``` js
-var toxcore = require('toxcore');
+var toxcore = require('js-toxcore-c');
 
 // Create a default Tox instance
 var tox = new toxcore.Tox();
@@ -76,5 +76,5 @@ For more examples, see the `examples/` directory.
 Generating the documentation should be as easy as `grunt jsdoc`.
 
 
-[libtoxcore]:https://github.com/irungentoo/toxcore
+[libtoxcore]:https://github.com/TokTok/js-toxcore-c
 [node-ffi]:https://github.com/node-ffi/node-ffi
