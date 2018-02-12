@@ -23,8 +23,16 @@ var mktemp = require('mktemp');
 var path = require('path');
 var should = require('should');
 
-var ToxEncryptSave = require(path.join(__dirname, '..', 'lib', 'toxencryptsave'));
-var consts = require(path.join(__dirname, '..', 'lib', 'consts'));
+function loadModule(mod) {
+  try {
+    return require(path.join('js-toxcore-c', 'js-toxcore-c', 'js-toxcore-c', 'lib', mod));
+  } catch (e) {
+    return require(path.join(__dirname, '..', 'lib', mod));
+  }
+}
+
+var ToxEncryptSave = loadModule('toxencryptsave');
+var consts = loadModule('consts');
 
 buffertools.extend();
 

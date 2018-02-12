@@ -20,7 +20,17 @@ var assert = require('assert');
 var buffertools = require('buffertools');
 var should = require('should');
 var path = require('path');
-var util = require(path.join(__dirname, '..', 'lib', 'util'));
+
+function loadModule(mod) {
+  try {
+    return require(path.join('js-toxcore-c', 'js-toxcore-c', 'js-toxcore-c', 'lib', mod));
+  } catch (e) {
+    return require(path.join(__dirname, '..', 'lib', mod));
+  }
+}
+
+var util = loadModule('util');
+
 var size_t = util.size_t;
 
 buffertools.extend(); // Extend Buffer.prototype

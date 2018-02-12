@@ -1,13 +1,11 @@
-# TODO(iphydf): Uncomment once https://github.com/pubref/rules_node/issues/59 is fixed.
+load("@org_pubref_rules_node//node:rules.bzl", "node_module")
 
-#load("@org_pubref_rules_node//node:rules.bzl", "node_module")
-#
-#exports_files(srcs = ["package.json"])
-#
-#node_module(
-#    name = "js-toxcore-c",
-#    srcs = glob(["lib/*.js"]),
-#    main = "lib/main.js",
-#    visibility = ["//visibility:public"],
-#    deps = ["@js_toxcore_c_modules"],
-#)
+exports_files(srcs = ["package.json"])
+
+node_module(
+    name = "js-toxcore-c",
+    srcs = glob(["lib/*.js"]),
+    main = "lib/main.js",
+    visibility = ["//visibility:public"],
+    deps = ["@yarn_modules//:_all_"],
+)
