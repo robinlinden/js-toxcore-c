@@ -1,4 +1,7 @@
 load("@org_pubref_rules_node//node:rules.bzl", "node_module")
+load("//tools:project.bzl", "project")
+
+project("js-toxcore-c")
 
 exports_files(srcs = ["package.json"])
 
