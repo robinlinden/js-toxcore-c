@@ -8,10 +8,17 @@ Node.js bindings for [libtoxcore], built off of [node-ffi].
 Note: Installing this package does not install [libtoxcore]. It is expected
 that [libtoxcore] is installed prior to using **js-toxcore-c**.
 
+If you see compiler errors while trying to npm install js-toxcore-c, you
+[may](https://github.com/node-ffi/node-ffi/issues/451) need to install
+node-ffi manually using npm:
+
+```sh
+$ npm install https://github.com/node-ffi/node-ffi
+```
 
 ### New API Progress
 
-- [x] toxcore
+- [x] toxcore (missing conferences)
 - [ ] toxav
 - [x] toxencryptsave
 - [ ] Higher level API
@@ -76,5 +83,5 @@ For more examples, see the `examples/` directory.
 Generating the documentation should be as easy as `grunt jsdoc`.
 
 
-[libtoxcore]:https://github.com/TokTok/js-toxcore-c
+[libtoxcore]:https://github.com/TokTok/c-toxcore
 [node-ffi]:https://github.com/node-ffi/node-ffi
