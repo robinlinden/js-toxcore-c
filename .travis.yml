@@ -1,47 +1,48 @@
+---
 language: node_js
 
 cache:
   directories:
-  - $HOME/cache
+    - $HOME/cache
 
 matrix:
   include:
-  - node_js: "node"
-  - node_js: "0.10"
-    if: type IN (push, api, cron)
-  - node_js: "0.12"
-    if: type IN (push, api, cron)
-  - node_js: "1"
-    if: type IN (push, api, cron)
-  - node_js: "2"
-    if: type IN (push, api, cron)
-  # Fails to compile module "nan":
-  # error: ‘class v8::Object’ has no member named ‘DefineOwnProperty’
-  #- node_js: "3"
-  #  if: type IN (push, api, cron)
-  - node_js: "4"
-    if: type IN (push, api, cron)
-  - node_js: "5"
-    if: type IN (push, api, cron)
-  - node_js: "6"
-    if: type IN (push, api, cron)
-  - node_js: "7"
-    if: type IN (push, api, cron)
-  - node_js: "8"
-    if: type IN (push, api, cron)
+    - node_js: "node"
+    - node_js: "0.10"
+      if: type IN (push, api, cron)
+    - node_js: "0.12"
+      if: type IN (push, api, cron)
+    - node_js: "1"
+      if: type IN (push, api, cron)
+    - node_js: "2"
+      if: type IN (push, api, cron)
+    # Fails to compile module "nan":
+    # error: 'class v8::Object' has no member named 'DefineOwnProperty'
+#   - node_js: "3"
+#     if: type IN (push, api, cron)
+    - node_js: "4"
+      if: type IN (push, api, cron)
+    - node_js: "5"
+      if: type IN (push, api, cron)
+    - node_js: "6"
+      if: type IN (push, api, cron)
+    - node_js: "7"
+      if: type IN (push, api, cron)
+    - node_js: "8"
+      if: type IN (push, api, cron)
 
 addons: {apt: {packages: [libopus-dev, libvpx-dev, g++-4.8], sources: [ubuntu-toolchain-r-test]}}
 
 # io.js v3+ requires C++11
 before_install:
-- export CXX="g++-4.8"
-# https://github.com/node-ffi/node-ffi/issues/451
-- npm install https://github.com/node-ffi/node-ffi
+  - export CXX="g++-4.8"
+  # https://github.com/node-ffi/node-ffi/issues/451
+  - npm install https://github.com/node-ffi/node-ffi
 
 before_script:
-- export CACHE_DIR="$HOME/cache"
-- export CFLAGS="-I$CACHE_DIR/usr/include -O3"
-- export LDFLAGS="-L$CACHE_DIR/usr/lib"
-- export LD_LIBRARY_PATH="$CACHE_DIR/usr/lib"
-- export PKG_CONFIG_PATH="$CACHE_DIR/usr/lib/pkgconfig"
-- tools/install-deps.sh > /dev/null
+  - export CACHE_DIR="$HOME/cache"
+  - export CFLAGS="-I$CACHE_DIR/usr/include -O3"
+  - export LDFLAGS="-L$CACHE_DIR/usr/lib"
+  - export LD_LIBRARY_PATH="$CACHE_DIR/usr/lib"
+  - export PKG_CONFIG_PATH="$CACHE_DIR/usr/lib/pkgconfig"
+  - tools/install-deps.sh > /dev/null
