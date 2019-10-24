@@ -17,7 +17,6 @@
  */
 
 var assert = require('assert');
-var buffertools = require('buffertools');
 var fs = require('fs');
 var mktemp = require('mktemp');
 var path = require('path');
@@ -34,7 +33,7 @@ function loadModule(mod) {
 var ToxEncryptSave = loadModule('toxencryptsave');
 var consts = loadModule('consts');
 
-buffertools.extend();
+require("buffer")
 
 // Helper mktemp functions
 var mktempToxSync = mktemp.createFileSync.bind(undefined, 'XXXXX.tox');

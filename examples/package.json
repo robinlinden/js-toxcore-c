@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "buffertools": "^2.1.6",
     "bluebird": "^3.5.1",
     "fs-ext": "^1.0.0",
     "mkdirp": "^0.5.1",

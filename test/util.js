@@ -17,7 +17,6 @@
  */
 
 var assert = require('assert');
-var buffertools = require('buffertools');
 var should = require('should');
 var path = require('path');
 
@@ -33,7 +32,7 @@ var util = loadModule('util');
 
 var size_t = util.size_t;
 
-buffertools.extend(); // Extend Buffer.prototype
+require("buffer");
 
 describe('util', function() {
   describe('#size_t()', function() {

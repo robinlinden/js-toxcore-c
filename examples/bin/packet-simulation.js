@@ -17,7 +17,6 @@
  *
  */
 
-var buffertools = require('buffertools');
 var toxcore = require('js-toxcore-c');
 var tx = new toxcore.Tox(), rx = new toxcore.Tox();
 
@@ -102,16 +101,16 @@ tx.on('friendConnectionStatus', function(e) {
     tx.sendLosslessPacketSync(e.friend(), LOSSLESS_CHANNEL, new Buffer('hello-world-lossless'));
     tx.sendLossyPacketSync(e.friend(), LOSSY_CHANNEL, new Buffer('hello-world-lossy'));
 
-    var losslessMessage2 = buffertools.concat(
+    var losslessMessage2 = Buffer.concat([
       new Buffer([LOSSLESS_CHANNEL + 1]),
       new Buffer('lossless-2-param')
-    );
+    ]);
     tx.sendLosslessPacketSync(e.friend(), losslessMessage2);
 
-    var lossyMessage2 = buffertools.concat(
+    var lossyMessage2 = Buffer.concat([
       new Buffer([LOSSY_CHANNEL + 1]),
       new Buffer('lossy-2-param')
-    );
+    ]);
     tx.sendLossyPacketSync(e.friend(), lossyMessage2);
   }
 });
