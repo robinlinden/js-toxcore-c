@@ -37,10 +37,10 @@ var tox = new toxcore.Tox();
 var bootstrap = function(callback) {
   // Define nodes to bootstrap from
   var nodes = [
-    { maintainer: 'nurupo',
-      address: 'node.tox.biribiri.org',
+    { maintainer: 'Anthony Bilinski',
+      address: 'tox.abilinski.com',
       port: 33445,
-      key: 'F404ABAA1C99A9D37D61AB54898F56793E1DEF8BD46B1038B9D822E8460FAB67' }
+      key: '10C00EB250C3233E343E2AEBA07115A5C28920E9C8D29492F6D00B29049EDC7E' }
   ];
 
   async.mapAsync(nodes, function(node, cb) {
