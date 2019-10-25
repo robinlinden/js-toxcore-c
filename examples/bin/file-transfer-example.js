@@ -124,7 +124,7 @@ tox.on('fileRecvControl', function(e) {
 
 tox.on('fileChunkRequest', function(e) {
   if(sendFile) {
-    var data = new Buffer(e.length()),
+    var data = Buffer.alloc(e.length()),
         bytesRead = 0;
 
     try {

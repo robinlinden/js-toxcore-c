@@ -164,7 +164,7 @@ describe('Tox', function() {
         added.should.equal(retrieved);
 
         var retrievedKey = tox.getFriendPublicKeySync(added);
-        retrievedKey.toHex().toLowerCase().should.equal(publicKey.toLowerCase());
+        retrievedKey.toString('hex').toLowerCase().should.equal(publicKey.toLowerCase());
 
         tox.hasFriendSync(added).should.be.true;
       });
@@ -185,7 +185,7 @@ describe('Tox', function() {
               added.should.equal(retrieved);
               tox.getFriendPublicKey(added, function(err, retrievedKey) {
                 if(err) { done(err); return; }
-                retrievedKey.toHex().toLowerCase().should.equal(publicKey.toLowerCase());
+                retrievedKey.toString('hex').toLowerCase().should.equal(publicKey.toLowerCase());
                 tox.hasFriend(added, function(err, exists) {
                   exists.should.be.true;
                   done(err);
@@ -657,12 +657,12 @@ describe('Tox', function() {
 
   describe('hashing', function() {
     it('should hash some data', function() {
-      var hash = tox.hashSync(new Buffer([0, 1, 2, 3]));
+      var hash = tox.hashSync(Buffer.from([0, 1, 2, 3]));
       hash.length.should.equal(consts.TOX_HASH_LENGTH);
     });
 
     it('should hash some data (async)', function(done) {
-      tox.hash(new Buffer([0, 1, 2, 3]), function(err, hash) {
+      tox.hash(Buffer.from([0, 1, 2, 3]), function(err, hash) {
         if(!err) {
           hash.length.should.equal(consts.TOX_HASH_LENGTH);
           done();

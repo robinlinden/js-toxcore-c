@@ -59,9 +59,9 @@ var packetCallback = function(e) {
 
   // Respond using the same id
   if(e.isLossless()) {
-    rx.sendLosslessPacketSync(e.friend(), e.id(), new Buffer('lossless-receipt-packet-content'));
+    rx.sendLosslessPacketSync(e.friend(), e.id(), Buffer.from('lossless-receipt-packet-content'));
   } else {
-    rx.sendLossyPacketSync(e.friend(), e.id(), new Buffer('lossy-receipt-packet-content'));
+    rx.sendLossyPacketSync(e.friend(), e.id(), Buffer.from('lossy-receipt-packet-content'));
   }
 };
 
@@ -98,18 +98,18 @@ tx.on('friendConnectionStatus', function(e) {
   console.log('[tx] Friend connection status: %s', e.isConnected() ? 'online' : 'offline');
   if(e.isConnected()) {
     console.log('[tx] Sending lossless + lossy packets');
-    tx.sendLosslessPacketSync(e.friend(), LOSSLESS_CHANNEL, new Buffer('hello-world-lossless'));
-    tx.sendLossyPacketSync(e.friend(), LOSSY_CHANNEL, new Buffer('hello-world-lossy'));
+    tx.sendLosslessPacketSync(e.friend(), LOSSLESS_CHANNEL, Buffer.from('hello-world-lossless'));
+    tx.sendLossyPacketSync(e.friend(), LOSSY_CHANNEL, Buffer.from('hello-world-lossy'));
 
     var losslessMessage2 = Buffer.concat([
-      new Buffer([LOSSLESS_CHANNEL + 1]),
-      new Buffer('lossless-2-param')
+      Buffer.from([LOSSLESS_CHANNEL + 1]),
+      Buffer.from('lossless-2-param')
     ]);
     tx.sendLosslessPacketSync(e.friend(), losslessMessage2);
 
     var lossyMessage2 = Buffer.concat([
-      new Buffer([LOSSY_CHANNEL + 1]),
-      new Buffer('lossy-2-param')
+      Buffer.from([LOSSY_CHANNEL + 1]),
+      Buffer.from('lossy-2-param')
     ]);
     tx.sendLossyPacketSync(e.friend(), lossyMessage2);
   }

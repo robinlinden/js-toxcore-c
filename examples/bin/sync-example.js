@@ -130,7 +130,7 @@ tox.on('friendLosslessPacket', function(e){
   var name = tox.getFriendNameSync(e.friend());  
   console.log('**Received lossless packet from ' + '[' + e.friend() + ']');
   console.log(e.data().toString());
-  tox.sendLosslessPacketSync(e.friend(), new Buffer('lossless-receipt-packet-content'));
+  tox.sendLosslessPacketSync(e.friend(), Buffer.from('lossless-receipt-packet-content'));
 });
 
 tox.setNameSync('Sync Bot');

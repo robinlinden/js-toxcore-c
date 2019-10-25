@@ -39,7 +39,7 @@ require("buffer")
 var mktempToxSync = mktemp.createFileSync.bind(undefined, 'XXXXX.tox');
 
 var toxPassKeyToObject = function(passKey) {
-  return { key: new Buffer(passKey.key), salt: new Buffer(passKey.salt) };
+  return { key: Buffer.from(passKey.key), salt: Buffer.from(passKey.salt) };
 };
 
 describe('ToxEncryptSave', function() {
@@ -47,13 +47,13 @@ describe('ToxEncryptSave', function() {
 
   describe('encryption and decryption', function() {
     it('should detect encrypted data', function() {
-      var data = new Buffer('hello world'),
+      var data = Buffer.from('hello world'),
           edata = crypto.encryptSync(data, 'somePassphrase');
       crypto.isDataEncryptedSync(edata).should.be.true;
     });
 
     it('should detect encrypted data (async)', function(done) {
-      var data = new Buffer('hello async world');
+      var data = Buffer.from('hello async world');
       crypto.encrypt(data, 'someAsyncPassphrase', function(err, edata) {
         if(!err) {
           crypto.isDataEncrypted(edata, function(err, isEnc) {
@@ -67,7 +67,7 @@ describe('ToxEncryptSave', function() {
     });
 
     it('should be able to decrypt encrypted data', function() {
-      var data = new Buffer('some encrypted data'),
+      var data = Buffer.from('some encrypted data'),
           passphrase = 'somePassphrase',
           edata = crypto.encryptSync(data, passphrase);
 
@@ -81,7 +81,7 @@ describe('ToxEncryptSave', function() {
     });
 
     it('should be able to decrypt encrypted data (async)', function(done) {
-      var data = new Buffer('some encrypted data'),
+      var data = Buffer.from('some encrypted data'),
           passphrase = 'somePassphrase';
       crypto.encrypt(data, passphrase, function(err, edata) {
         if(!err) {
@@ -99,7 +99,7 @@ describe('ToxEncryptSave', function() {
 
     it('should be able to decrypt encrypted data from pass key', function() {
       var passKey = crypto.deriveKeyFromPassSync('passphrase'),
-          data = new Buffer('encrypt me with a pass key struct'),
+          data = Buffer.from('encrypt me with a pass key struct'),
           edata = crypto.encryptPassKeySync(data, passKey);
 
       (edata.equals(data)).should.be.false;
@@ -110,7 +110,7 @@ describe('ToxEncryptSave', function() {
     });
 
     it('should be able to decrypt encrypted data from pass key (async)', function(done) {
-      var data = new Buffer('encrypt me with a pass key struct async');
+      var data = Buffer.from('encrypt me with a pass key struct async');
       crypto.deriveKeyFromPass('somePass', function(err, passKey) {
         if(!err) {
           crypto.encryptPassKey(data, passKey, function(err, edata) {
@@ -130,7 +130,7 @@ describe('ToxEncryptSave', function() {
 
     it('should get the salt from encrypted data', function() {
       var pass = 'somePassword',
-          data = new Buffer('some data'),
+          data = Buffer.from('some data'),
           edata = crypto.encryptSync(data, pass),
           salt = crypto.getSaltSync(edata);
       salt.should.be.a.Buffer;
@@ -139,7 +139,7 @@ describe('ToxEncryptSave', function() {
 
     it('should get the salt from encrypted data (async)', function(done) {
       var pass = 'somePassphrase',
-          data = new Buffer('encrypt me');
+          data = Buffer.from('encrypt me');
       crypto.encrypt(data, pass, function(err, edata) {
         if(!err) {
           crypto.getSalt(edata, function(err, salt) {
@@ -156,7 +156,7 @@ describe('ToxEncryptSave', function() {
 
   describe('encryption and decryption (file helpers)', function() {
     it('should encrypt and decrypt to/from files', function() {
-      var data = new Buffer('encrypt me to a file'),
+      var data = Buffer.from('encrypt me to a file'),
           pass = 'somePassword',
           temp = mktempToxSync();
       crypto.encryptFileSync(temp, data, pass);
@@ -166,7 +166,7 @@ describe('ToxEncryptSave', function() {
     });
 
     it('should encrypt and decrypt to/from files (async)', function(done) {
-      var data = new Buffer('encrypt me to a file async'),
+      var data = Buffer.from('encrypt me to a file async'),
           pass = 'somePassphrase',
           temp = mktempToxSync();
       crypto.encryptFile(temp, data, pass, function(err) {
