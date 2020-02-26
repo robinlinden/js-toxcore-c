@@ -36,8 +36,6 @@ addons: {apt: {packages: [libopus-dev, libvpx-dev, g++-4.8], sources: [ubuntu-to
 # io.js v3+ requires C++11
 before_install:
   - export CXX="g++-4.8"
-  # https://github.com/node-ffi/node-ffi/issues/451
-  - npm install https://github.com/node-ffi/node-ffi
 
 before_script:
   - export CACHE_DIR="$HOME/cache"
