@@ -33,7 +33,7 @@ function loadModule(mod) {
 var ToxEncryptSave = loadModule("toxencryptsave");
 var consts = loadModule("consts");
 
-require("buffer")
+require("buffer");
 
 // Helper mktemp functions
 var mktempToxSync = mktemp.createFileSync.bind(undefined, "XXXXX.tox");

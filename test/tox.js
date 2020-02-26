@@ -447,7 +447,7 @@ describe("Tox", function() {
       tox.hasCrypto().should.be.true;
     });
 
-    it('should not break when the \'crypto\" option is passed to Tox constructor", function() {
+    it("should not break when the \"crypto\" option is passed to Tox constructor", function() {
       var toxWithCrypto1 = new Tox({ crypto: true }),
           toxWithCrypto2 = new Tox({ crypto: new ToxEncryptSave() }),
           toxWithoutCrypto1 = new Tox({ crypto: false });
