@@ -32,9 +32,9 @@
     "test": "mocha"
   },
   "dependencies": {
-    "ffi-napi": "^2.2.0",
+    "ffi-napi": "git+https://github.com/node-ffi-napi/node-ffi-napi.git#40443ca8dad10cc3286c432774de3ce631d457e1",
     "ref-array-napi": "^1.2.0",
-    "ref-napi": "^1.4.2",
+    "ref-napi": "^1.4.3",
     "ref-struct-napi": "^1.1.0",
     "underscore": "^1.8.3"
   },
