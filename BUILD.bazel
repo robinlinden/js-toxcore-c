@@ -1,14 +1,13 @@
-load("@org_pubref_rules_node//node:rules.bzl", "node_module")
+#load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 load("//tools/project:build_defs.bzl", "project")
 
 project()
 
-exports_files(srcs = ["package.json"])
-
-node_module(
-    name = "js-toxcore-c",
-    srcs = glob(["lib/*.js"]),
-    main = "lib/main.js",
-    visibility = ["//visibility:public"],
-    deps = ["@yarn_modules//:_all_"],
-)
+#exports_files(srcs = ["package.json"])
+#
+#nodejs_binary(
+#    name = "js-toxcore-c",
+#    entry_point = "lib/main.js",
+#    visibility = ["//visibility:public"],
+#    deps = ["@yarn_modules//:_all_"],
+#)
