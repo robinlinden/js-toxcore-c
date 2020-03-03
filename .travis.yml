@@ -1,25 +1,14 @@
 ---
 language: node_js
+os: linux
 
 cache:
   directories:
     - $HOME/cache
 
-matrix:
+jobs:
   include:
     - node_js: "node"
-    - node_js: "0.10"
-      if: type IN (push, api, cron)
-    - node_js: "0.12"
-      if: type IN (push, api, cron)
-    - node_js: "1"
-      if: type IN (push, api, cron)
-    - node_js: "2"
-      if: type IN (push, api, cron)
-    # Fails to compile module "nan":
-    # error: 'class v8::Object' has no member named 'DefineOwnProperty'
-#   - node_js: "3"
-#     if: type IN (push, api, cron)
     - node_js: "4"
       if: type IN (push, api, cron)
     - node_js: "5"
