@@ -1,5 +1,6 @@
 ---
 language: node_js
+dist: xenial
 os: linux
 
 cache:
@@ -8,23 +9,33 @@ cache:
 
 jobs:
   include:
-    - node_js: "node"
-    - node_js: "4"
+    # TODO(iphydf): Enable this once node 14 isn't broken.
+    #- node_js: "node"
+    - node_js: "13"
+    - node_js: "12"
       if: type IN (push, api, cron)
-    - node_js: "5"
+    - node_js: "11"
       if: type IN (push, api, cron)
-    - node_js: "6"
+    - node_js: "10"
       if: type IN (push, api, cron)
-    - node_js: "7"
+    - node_js: "9"
       if: type IN (push, api, cron)
     - node_js: "8"
       if: type IN (push, api, cron)
+    - node_js: "7"
+      if: type IN (push, api, cron)
+    - node_js: "6"
+      if: type IN (push, api, cron)
+    - node_js: "5"
+      if: type IN (push, api, cron)
+    - node_js: "4"
+      if: type IN (push, api, cron)
 
-addons: {apt: {packages: [libopus-dev, libvpx-dev, g++-4.8], sources: [ubuntu-toolchain-r-test]}}
-
-# io.js v3+ requires C++11
-before_install:
-  - export CXX="g++-4.8"
+addons:
+  apt:
+    packages:
+      - libopus-dev
+      - libvpx-dev
 
 before_script:
   - export CACHE_DIR="$HOME/cache"
