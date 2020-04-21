@@ -44,3 +44,6 @@ before_script:
   - export LD_LIBRARY_PATH="$CACHE_DIR/usr/lib"
   - export PKG_CONFIG_PATH="$CACHE_DIR/usr/lib/pkgconfig"
   - tools/install-deps.sh > /dev/null
+
+after_script:
+  - npm run doc
