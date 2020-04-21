@@ -30,7 +30,8 @@
   },
   "scripts": {
     "doc": "grunt jsdoc",
-    "test": "mocha"
+    "test": "nyc mocha",
+    "report-coverage": "nyc report --reporter=text-lcov | codecov"
   },
   "dependencies": {
     "ffi-napi": "^2.4.7",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "async": "^3.2.0",
+    "codecov": "^3.6.5",
     "grunt": "^1.1.0",
     "grunt-jsdoc": "^2.4.1",
     "grunt-shell": "^3.0.1",
@@ -48,6 +50,7 @@
     "jsdoc": "^3.6.4",
     "mktemp": "^1.0.0",
     "mocha": "^3.5.3",
+    "nyc": "^15.0.1",
     "should": "^13.2.3"
   }
 }

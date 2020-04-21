@@ -45,5 +45,7 @@ before_script:
   - export PKG_CONFIG_PATH="$CACHE_DIR/usr/lib/pkgconfig"
   - tools/install-deps.sh > /dev/null
 
-after_script:
+script:
   - npm run doc
+  - npm run test
+  - npm run report-coverage
