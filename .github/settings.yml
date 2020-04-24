@@ -1,0 +1,22 @@
+---
+_extends: template
+
+repository:
+  name: js-toxcore-c
+  description: Node bindings for toxcore
+  topics: toxcore, javascript
+  has_issues: true
+
+branches:
+  - name: "master"
+    protection:
+      required_status_checks:
+        contexts:
+          - Codacy/PR Quality Review
+          - DeepScan
+          - Milestone Check
+          - Travis CI - Pull Request
+          - WIP
+          - code-review/reviewable
+          - license/cla
+          - security/snyk (TokTok)
