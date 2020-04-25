@@ -31,7 +31,7 @@
   "scripts": {
     "doc": "grunt jsdoc",
     "test": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov | codecov"
+    "report-coverage": "nyc report --reporter=text-lcov  > coverage.lcov && codecov"
   },
   "dependencies": {
     "ffi-napi": "^2.4.7",

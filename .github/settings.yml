@@ -18,5 +18,7 @@ branches:
           - Travis CI - Pull Request
           - WIP
           - code-review/reviewable
+          - codecov/patch
+          - codecov/project
           - license/cla
           - security/snyk (TokTok)
