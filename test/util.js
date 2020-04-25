@@ -16,27 +16,27 @@
  *
  */
 
-var assert = require('assert');
-var should = require('should');
-var path = require('path');
+var assert = require("assert");
+var should = require("should");
+var path = require("path");
 
 function loadModule(mod) {
   try {
-    return require(path.join('js-toxcore-c', 'js-toxcore-c', 'js-toxcore-c', 'lib', mod));
+    return require(path.join("js-toxcore-c", "js-toxcore-c", "js-toxcore-c", "lib", mod));
   } catch (e) {
-    return require(path.join(__dirname, '..', 'lib', mod));
+    return require(path.join(__dirname, "..", "lib", mod));
   }
 }
 
-var util = loadModule('util');
+var util = loadModule("util");
 
 var size_t = util.size_t;
 
 require("buffer");
 
-describe('util', function() {
-  describe('#size_t()', function() {
-    it('should return a Buffer', function() {
+describe("util", function () {
+  describe("#size_t()", function () {
+    it("should return a Buffer", function () {
       var zeroSize = size_t(0);
       should.exist(zeroSize);
     });

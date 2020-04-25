@@ -12,6 +12,7 @@ jobs:
     # TODO(iphydf): Enable this once node 14 isn't broken.
     #- node_js: "node"
     - node_js: "13"
+      env: CHECK_FORMAT=true
     - node_js: "12"
       if: type IN (push, api, cron)
     - node_js: "11"
@@ -40,3 +41,4 @@ script:
   - npm run doc
   - npm run test
   - npm run report-coverage
+  - if [ "$CHECK_FORMAT" = true ]; then npm run format && git diff --exit-code; fi

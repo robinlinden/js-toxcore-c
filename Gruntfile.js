@@ -1,33 +1,33 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     shell: {
       mocha: {
-        command: 'mocha --recursive'
-      }
+        command: "mocha --recursive",
+      },
     },
     jsdoc: {
       dist: {
         src: [
-          'lib/events.js',
-          'lib/tox.js',
-          'lib/toxencryptsave.js',
-          'lib/toxoptions.js',
-          'lib/tox_old.js'
+          "lib/events.js",
+          "lib/tox.js",
+          "lib/toxencryptsave.js",
+          "lib/toxoptions.js",
+          "lib/tox_old.js",
         ],
         options: {
-          destination: 'doc',
+          destination: "doc",
           private: false,
-          template : 'node_modules/ink-docstrap/template',
-          configure : 'node_modules/ink-docstrap/template/jsdoc.conf.json'
-        }
-      }
-    }
+          template: "node_modules/ink-docstrap/template",
+          configure: "node_modules/ink-docstrap/template/jsdoc.conf.json",
+        },
+      },
+    },
   });
 
-  grunt.loadNpmTasks('grunt-jsdoc');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks("grunt-jsdoc");
+  grunt.loadNpmTasks("grunt-shell");
 
-  grunt.registerTask('default', ['jsdoc']);
-  grunt.registerTask('doc', ['jsdoc']);
-  grunt.registerTask('test', ['shell']);
+  grunt.registerTask("default", ["jsdoc"]);
+  grunt.registerTask("doc", ["jsdoc"]);
+  grunt.registerTask("test", ["shell"]);
 };

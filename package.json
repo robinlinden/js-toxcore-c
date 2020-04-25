@@ -31,7 +31,8 @@
   "scripts": {
     "doc": "grunt jsdoc",
     "test": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov  > coverage.lcov && codecov"
+    "report-coverage": "nyc report --reporter=text-lcov  > coverage.lcov && codecov",
+    "format": "prettier --write '**/*.js' '**/*.ts' '**/*.json'"
   },
   "dependencies": {
     "ffi-napi": "^2.4.7",
@@ -51,6 +52,7 @@
     "mktemp": "^1.0.0",
     "mocha": "^3.5.3",
     "nyc": "^15.0.1",
+    "prettier": "^2.0.5",
     "should": "^13.2.3"
   }
 }
