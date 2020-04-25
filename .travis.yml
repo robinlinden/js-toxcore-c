@@ -22,14 +22,6 @@ jobs:
       if: type IN (push, api, cron)
     - node_js: "8"
       if: type IN (push, api, cron)
-    - node_js: "7"
-      if: type IN (push, api, cron)
-    - node_js: "6"
-      if: type IN (push, api, cron)
-    - node_js: "5"
-      if: type IN (push, api, cron)
-    - node_js: "4"
-      if: type IN (push, api, cron)
 
 addons:
   apt:
