@@ -11,6 +11,8 @@ branches:
     protection:
       required_status_checks:
         contexts:
-          - "build"
+          - "build (10.x)"
+          - "build (12.x)"
+          - "build (13.x)"
           - "DeepScan"
           - "security/snyk (TokTok)"
